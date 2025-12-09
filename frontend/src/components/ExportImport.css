@@ -1,0 +1,242 @@
+.export-import {
+  position: relative;
+}
+
+.export-import-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+}
+
+.export-import-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+}
+
+.export-import-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.export-import-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px 16px 0 0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.close-modal:hover {
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.action-section {
+  margin-bottom: 2rem;
+}
+
+.action-section:last-child {
+  margin-bottom: 0;
+}
+
+.action-section h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.action-section p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-export,
+.btn-import {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-export {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+}
+
+.btn-export:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+}
+
+.btn-import {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-import:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-import:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+  margin: 2rem 0;
+}
+
+.import-note {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f0f7ff;
+  border-left: 4px solid #3b82f6;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #1e40af;
+  line-height: 1.6;
+}
+
+.import-note strong {
+  font-weight: 700;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .export-import-content {
+  background: #2d3748;
+  color: white;
+}
+
+[data-theme="dark"] .modal-header {
+  border-bottom-color: #4a5568;
+}
+
+[data-theme="dark"] .action-section h4 {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .action-section p {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .divider {
+  background: linear-gradient(to right, transparent, #4a5568, transparent);
+}
+
+[data-theme="dark"] .import-note {
+  background: #1e3a5f;
+  border-left-color: #60a5fa;
+  color: #bfdbfe;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .export-import-content {
+    width: 95%;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-export,
+  .btn-import {
+    width: 100%;
+    justify-content: center;
+  }
+}
